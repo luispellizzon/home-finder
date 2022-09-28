@@ -12,11 +12,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Explore />} />
-          <Route path="/" element={<Offers />} />
-          <Route path="/" element={<Profile />} />
-          <Route path="/" element={<SignIn />} />
-          <Route path="/" element={<SignUp />} />
-          <Route path="/" element={<ForgotPassword />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/profile" element={<SignIn />} />
+          <Route path="/sign-n" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </Router>
     </>
