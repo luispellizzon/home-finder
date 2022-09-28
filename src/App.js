@@ -8,9 +8,18 @@ import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
-    <div>
-      <h1>Cork House Marketplace</h1>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Explore />} />
+          <Route path="/" element={<Offers />} />
+          <Route path="/" element={<Profile />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<ForgotPassword />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
