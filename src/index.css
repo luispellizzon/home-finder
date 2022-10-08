@@ -415,14 +415,14 @@ button {
 
 .categoryListingImg {
   width: 30%;
-  height: 100px;
+  height: 150px;
   border-radius: 1.5rem;
   object-fit: cover;
 }
 @media (min-width: 1024px) {
   .categoryListingImg {
     width: 19%;
-    height: 217px;
+    height: 200px;
   }
 }
 

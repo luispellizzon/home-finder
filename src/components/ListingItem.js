@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as DeleteIcon } from "../assets/svg/deleteIcon.svg";
 import bedIcon from "../assets/svg/bedIcon.svg";
-import baththub from "../assets/svg/bathtubIcon.svg";
+import baththubIcon from "../assets/svg/bathtubIcon.svg";
 
 function ListingItem({ listing, id }) {
   const priceFormat = (price) => {
@@ -9,7 +9,7 @@ function ListingItem({ listing, id }) {
     return price.toString().replace(regex, ",");
   };
 
-  const bedIcons = (number) => {
+  const displayIcons = (number) => {
     let iconCounter = [];
 
     for (let i = 1; i <= number; i++) {
@@ -41,15 +41,26 @@ function ListingItem({ listing, id }) {
           </p>
           <div className="categoryListingInfoDiv">
             <div>
-              {bedIcons(listing.bedrooms).map((number, i) => (
+              {displayIcons(listing.bedrooms).map((number, i) => (
                 <img src={bedIcon} alt="bed" key={i} />
               ))}
             </div>
-            {/* <img src={bedIcon} alt="bed" /> */}
             <p className="categoryListingInfoText">
               {listing.bedrooms > 1
                 ? `${listing.bedrooms} Bedrooms`
                 : "1 Bedroom"}
+            </p>
+          </div>
+          <div className="categoryListingInfoDiv">
+            <div>
+              {displayIcons(listing.bathrooms).map((number, i) => (
+                <img src={baththubIcon} alt="bed" key={i} />
+              ))}
+            </div>
+            <p className="categoryListingInfoText">
+              {listing.bathrooms > 1
+                ? `${listing.bedrooms} Bathrooms`
+                : "1 Bathroom"}
             </p>
           </div>
         </div>
