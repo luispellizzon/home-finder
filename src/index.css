@@ -763,6 +763,10 @@ button {
   text-align: center;
 }
 
+.formLatLng .formInputSmall {
+  margin-right: 0.7rem;
+}
+
 .formInputName {
   padding: 0.9rem 1rem;
   width: 90%;
