@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 
 function CreateListing() {
-  const [geolocationEnable, setGeolocationEnable] = useState(false);
+  const [geolocationEnable, setGeolocationEnable] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: "rent",
@@ -59,8 +59,34 @@ function CreateListing() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
   };
-  const onMutate = (e) => {};
+  const onMutate = (e) => {
+    // Check true or false
+    let boolean = null;
+    if (e.target.value === "true") {
+      boolean = true;
+    }
+    if (e.target.value === "false") {
+      boolean = false;
+    }
+
+    //   Check files
+    if (e.target.files) {
+      setFormData((prevState) => ({
+        ...prevState,
+        images: e.target.files,
+      }));
+    }
+
+    //   Check text/numbers/bollean
+    if (!e.target.file) {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.id]: boolean ?? e.target.value,
+      }));
+    }
+  };
 
   if (loading) {
     return <Spinner />;
