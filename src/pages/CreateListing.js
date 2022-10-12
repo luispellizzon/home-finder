@@ -58,7 +58,7 @@ function CreateListing() {
     };
   }, [isMounted]);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -67,13 +67,34 @@ function CreateListing() {
       toast.error("Discounted price needs to be less than regular price");
       return;
     }
+
     if (images.length > 6) {
       setLoading(false);
       toast.error("Max 6 images per listing");
       return;
     }
+
+    let geolocation;
+    let location;
+
+    if (geolocationEnable) {
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAvHn0eKnqJcK-V4AqmaVVqavDTJ2WVdCM`
+      );
+
+      const data = await response.json();
+      geolocation = { ...data.results[0].geometry.location };
+    } else {
+      geolocation.lat = latitude;
+      geolocation.lng = longitude;
+      location = address;
+    }
+
+    setLoading(false);
   };
+
   const onMutate = (e) => {
+    console.log(e.target.files);
     // Check true or false
     let boolean = null;
     if (e.target.value === "true") {
@@ -92,7 +113,7 @@ function CreateListing() {
     }
 
     //   Check text/numbers/bollean
-    if (!e.target.file) {
+    if (!e.target.files) {
       setFormData((prevState) => ({
         ...prevState,
         [e.target.id]: boolean ?? e.target.value,
