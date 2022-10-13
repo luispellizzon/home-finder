@@ -100,13 +100,6 @@ function CreateListing() {
           ? undefined
           : data.results[0]?.formatted_address;
 
-      //   setFormData((prevState) => ({
-      //     ...prevState,
-      //     address: location,
-      //     latitude: geolocation.lat,
-      //     longitude: geolocation.lng,
-      //   }));
-
       if (location === undefined || location.includes("undefined")) {
         setLoading(false);
         toast.error("Please, enter a correct address");
@@ -114,7 +107,6 @@ function CreateListing() {
     } else {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
-      location = address;
     }
 
     //Store images on firebase
@@ -170,9 +162,9 @@ function CreateListing() {
       timestamp: serverTimestamp(),
     };
 
+    formDataCopy.location = address;
     delete formDataCopy.images;
     delete formDataCopy.address;
-    location && (formDataCopy.location = location);
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
 
     const docRef = await addDoc(collection(db, "listings"), formDataCopy);
