@@ -74,16 +74,29 @@ function CreateListing() {
       return;
     }
 
-    let geolocation;
+    let geolocation = {};
     let location;
 
     if (geolocationEnable) {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAvHn0eKnqJcK-V4AqmaVVqavDTJ2WVdCM`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
       );
 
       const data = await response.json();
-      geolocation = { ...data.results[0].geometry.location };
+      geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
+      geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
+
+      location =
+        data.status === "ZERO_RESULTS"
+          ? undefined
+          : data.results[0]?.formatted_address;
+
+      console.log(data, geolocation, location);
+
+      if (location === undefined || location.includes("undefined")) {
+        setLoading(false);
+        toast.error("Please, enter a correct address");
+      }
     } else {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
@@ -94,7 +107,6 @@ function CreateListing() {
   };
 
   const onMutate = (e) => {
-    console.log(e.target.files);
     // Check true or false
     let boolean = null;
     if (e.target.value === "true") {
