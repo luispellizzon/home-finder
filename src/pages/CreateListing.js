@@ -91,7 +91,12 @@ function CreateListing() {
           ? undefined
           : data.results[0]?.formatted_address;
 
-      console.log(data, geolocation, location);
+      setFormData((prevState) => ({
+        ...prevState,
+        address: location,
+        latitude: geolocation.lat,
+        longitude: geolocation.lng,
+      }));
 
       if (location === undefined || location.includes("undefined")) {
         setLoading(false);
