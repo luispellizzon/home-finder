@@ -30,7 +30,25 @@ function Listing() {
     fetchListing();
   }, [navigate, params.listingId]);
 
-  return <div>Listing</div>;
+  return (
+    <main>
+      {/*Slide show*/}
+      <div
+        className="shareIconDiv"
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          setSharedLinkCopied(true);
+          setTimeout(() => {
+            setSharedLinkCopied(false);
+          }, 2000);
+        }}
+      >
+        <img src={sharedIcon} alt="" />
+      </div>
+
+      {sharedLinkCopied && <p className="linkCopied">Link Copied!</p>}
+    </main>
+  );
 }
 
 export default Listing;
