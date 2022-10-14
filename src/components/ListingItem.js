@@ -2,13 +2,9 @@ import { Link } from "react-router-dom";
 import { ReactComponent as DeleteIcon } from "../assets/svg/deleteIcon.svg";
 import bedIcon from "../assets/svg/bedIcon.svg";
 import baththubIcon from "../assets/svg/bathtubIcon.svg";
+import { priceFormat } from "../price-format/priceFormat";
 
 function ListingItem({ listing, id, onDelete }) {
-  const priceFormat = (price) => {
-    const regex = /\B(?=(\d{3})+(?!\d))/g;
-    return price.toString().replace(regex, ",");
-  };
-
   const displayIcons = (number) => {
     let iconCounter = [];
 
