@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import Spinner from "../components/Spinner";
 import sharedIcon from "../assets/svg/shareIcon.svg";
-import { priceFormat } from "../price-format/priceFormat";
+import { priceFormat } from "../assets/helper-functions/priceFormat";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
