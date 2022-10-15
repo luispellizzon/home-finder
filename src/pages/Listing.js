@@ -39,8 +39,6 @@ function Listing() {
     return <Spinner />;
   }
 
-  console.log(listing.imgUrls);
-
   return (
     <main>
       <Swiper slidesPerView={1} pagination={{ clickable: true }}>
