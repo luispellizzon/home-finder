@@ -7,6 +7,9 @@ import Spinner from "../components/Spinner";
 import sharedIcon from "../assets/svg/shareIcon.svg";
 import { priceFormat } from "../price-format/priceFormat";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlipe } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 function Listing() {
   const [listing, setListing] = useState(null);
