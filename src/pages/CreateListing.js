@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 function CreateListing() {
   const [geolocationEnable, setGeolocationEnable] = useState(true);
   const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     type: "rent",
     name: "",
