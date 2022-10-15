@@ -123,7 +123,6 @@ function CreateListing() {
           (snapshot) => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("upload is" + progress + " % done");
 
             switch (snapshot.state) {
               case "paused":
