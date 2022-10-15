@@ -65,6 +65,7 @@ function Slider() {
                   €
                   {priceFormat(data.regularPrice) ??
                     priceFormat(data.discountedPrice)}
+                  {data.type === "rent" && " per month"}
                 </p>
               </div>
             </SwiperSlide>
