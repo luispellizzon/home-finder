@@ -205,7 +205,7 @@ function CreateListing() {
   return (
     <div className="profile">
       <header>
-        <p className="header">Create a Listing</p>
+        <p className="pageHeader">Create a Listing</p>
       </header>
       <main>
         <form onSubmit={onSubmit}>
