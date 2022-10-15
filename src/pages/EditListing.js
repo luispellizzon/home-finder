@@ -15,6 +15,7 @@ import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 
 function EditListing() {
+  //eslint-disable-next-line
   const [geolocationEnable, setGeolocationEnable] = useState(true);
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState(false);
@@ -97,6 +98,7 @@ function EditListing() {
     return () => {
       isMounted.current = false;
     };
+    //eslint-disable-next-line
   }, [isMounted, navigate, auth]);
 
   const onSubmit = async (e) => {
@@ -152,6 +154,7 @@ function EditListing() {
         uploadTask.on(
           "state_changed",
           (snapshot) => {
+            //eslint-disable-next-line
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 

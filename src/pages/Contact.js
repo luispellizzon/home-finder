@@ -7,12 +7,12 @@ import { toast } from "react-toastify";
 function Contact() {
   const [message, setMessage] = useState("");
   const [landlord, setLandlord] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const params = useParams();
 
   useEffect(() => {
-    const getLanlorad = async () => {
+    const getLandlord = async () => {
       const docRef = doc(db, "users", params.landlordId);
       const docSnap = await getDoc(docRef);
 
@@ -23,7 +23,7 @@ function Contact() {
       }
     };
 
-    getLanlorad();
+    getLandlord();
   }, [params.landlordId]);
 
   const onChange = (e) => {
