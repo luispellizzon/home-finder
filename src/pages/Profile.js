@@ -89,7 +89,18 @@ function Profile() {
     }));
   };
 
-  const onDelete = (id) => {};
+  const onDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this listing?")) {
+      const docRef = doc(db, "listings", id);
+      await deleteDoc(docRef);
+
+      const updatedListings = listings.filter((listing) => listing.id !== id);
+
+      setListings(updatedListings);
+
+      toast.success("Successfully deleted");
+    }
+  };
 
   return (
     <div className="profile">
