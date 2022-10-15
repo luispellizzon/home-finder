@@ -126,10 +126,8 @@ function CreateListing() {
 
             switch (snapshot.state) {
               case "paused":
-                console.log("upload is paused");
                 break;
               case "running":
-                console.log("upload is running");
                 break;
               default:
                 break;
@@ -217,9 +215,9 @@ function CreateListing() {
           <div className="formButtons">
             <button
               type="button"
-              className={type === "sell" ? "formButtonActive" : "formButton"}
+              className={type === "sale" ? "formButtonActive" : "formButton"}
               id="type"
-              value="sell"
+              value="sale"
               onClick={onMutate}
             >
               Sell
