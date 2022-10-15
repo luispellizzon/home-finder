@@ -16,6 +16,7 @@ import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
 import homeIcon from "../assets/svg/homeIcon.svg";
+import ListingItem from "../components/ListingItem";
 
 function Profile() {
   const auth = getAuth();
@@ -88,6 +89,8 @@ function Profile() {
     }));
   };
 
+  const onDelete = (id) => {};
+
   return (
     <div className="profile">
       <header className="profileHeader">
@@ -137,6 +140,22 @@ function Profile() {
           <p>Sell or rent your place</p>
           <img src={arrowRight} alt="Arrow Right" />
         </Link>
+
+        {!loading && listings?.length > 0 && (
+          <>
+            <p className="listingText">Your Listings</p>
+            <ul className="listingsList">
+              {listings.map((listing) => (
+                <ListingItem
+                  key={listing.id}
+                  listing={listing.data}
+                  id={listing.id}
+                  onDelete={() => onDelete(listing.id)}
+                />
+              ))}
+            </ul>
+          </>
+        )}
       </main>
     </div>
   );
