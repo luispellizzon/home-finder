@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 
 function CreateListing() {
   //eslint-disable-next-line
+  //If the client wants the person to type the address
   const [geolocationEnable, setGeolocationEnable] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -105,6 +106,7 @@ function CreateListing() {
       if (location === undefined || location.includes("undefined")) {
         setLoading(false);
         toast.error("Please, enter a correct address");
+        return;
       }
     } else {
       geolocation.lat = latitude;

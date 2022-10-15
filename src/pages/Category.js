@@ -32,7 +32,7 @@ function Category() {
           listingRef,
           where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
-          limit(3)
+          limit(10)
         );
 
         // Execute query
@@ -70,7 +70,7 @@ function Category() {
         where("type", "==", params.categoryName),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
-        limit(3)
+        limit(10)
       );
 
       // Execute query
