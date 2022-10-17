@@ -93,8 +93,8 @@ function Listing() {
           </li>
           <li>
             {listing.bathrooms > 1
-              ? `${listing.bathrooms} Bedrooms`
-              : `1 Bedroom`}
+              ? `${listing.bathrooms} Bathrooms`
+              : `1 Bathroom`}
           </li>
           <li>{listing.parking && `Parking spot`}</li>
           <li>{listing.furnished && `Furnished`}</li>
