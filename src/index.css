@@ -597,6 +597,7 @@ button {
 
 .messageForm {
   margin-top: 0.5rem;
+ 
 }
 
 .messageDiv {
@@ -604,6 +605,12 @@ button {
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
+}
+
+@media (max-width: 380px) {
+  .messageDiv{
+    margin: 0 0 1rem 0;
+  }
 }
 
 .messageLabel {
